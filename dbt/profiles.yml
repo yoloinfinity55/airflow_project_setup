@@ -1,0 +1,28 @@
+# dbt/profiles.yml
+jaffle_shop:
+  # The default target for local development
+  target: dev 
+  outputs:
+    # 1. Dev Target (for completeness, maybe using local profiles.yml)
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('DBT_ROLE') }}"
+      warehouse: "{{ env_var('DBT_WAREHOUSE') }}"
+      database: "{{ env_var('DBT_DATABASE') }}"
+      schema: "{{ env_var('DBT_SCHEMA') }}"
+      threads: 4
+
+    # 2. Production Target (This is the one Airflow needs)
+    prod:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      role: "{{ env_var('DBT_ROLE') }}"
+      warehouse: "{{ env_var('DBT_WAREHOUSE') }}"
+      database: "{{ env_var('DBT_DATABASE') }}"
+      schema: "PROD_DWH" # Use a different, production schema name (or keep it RAW, but a dedicated name is best practice)
+      threads: 4
