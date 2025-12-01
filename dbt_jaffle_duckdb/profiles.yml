@@ -1,0 +1,31 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "jaffle_shop.duckdb"
+      extensions:
+        - parquet
+
+duckdb_local:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # CHANGE THIS LINE:
+      path: "/usr/local/airflow/dbt_jaffle_duckdb/jaffle_shop.duckdb"
+      extensions:
+        - parquet
+
+postgres_local:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: host.docker.internal
+      user: dbt_user
+      password: "123456"
+      port: 5432
+      dbname: elt_local
+      schema: public
+      threads: 1

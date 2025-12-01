@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop # The name of your source system (e.g., your old SQL Server instance)
+    description: Raw data from the transactional system.
+    # The DuckDB tables created by the dbt seed command are implicitly here
+    tables:
+      - name: customers
+      - name: orders

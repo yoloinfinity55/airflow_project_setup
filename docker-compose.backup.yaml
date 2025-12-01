@@ -77,7 +77,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - ${AIRFLOW_PROJ_DIR:-.}/dbt:/opt/airflow/dbt
+    # - ${AIRFLOW_PROJ_DIR:-.}/dbt:/opt/airflow/dbt
+    - /Users/minijohn/Documents/github-repo/dbt_ottawa_project:/opt/airflow/dbt
     # REMOVED: - /Users/minijohn/.dbt/profiles.yml:/home/airflow/.dbt/profiles.yml
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

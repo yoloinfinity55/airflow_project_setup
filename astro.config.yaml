@@ -1,0 +1,9 @@
+project:
+  name: airflow_project_setup
+
+mounts:
+  - source: ./dbt_jaffle_duckdb
+    target: /usr/local/airflow/dbt_jaffle_duckdb
+
+postgres:
+  port: 5433

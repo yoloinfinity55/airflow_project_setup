@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "dbt-ottawa-project"
+version = "0.1.0"
+description = "dbt project for Ottawa data engineer"
+authors = ["Your Name <you@ottawa.ca>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+dbt-core = "^1.8"
+dbt-snowflake = "^1.8"   # 指定 Snowflake 适配器
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

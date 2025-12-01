@@ -1,0 +1,23 @@
+name: jaffle_shop
+
+profile: jaffle_shop
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # 将 Seeds 构建到 'INPUT_DATA' schema 中，以避免名称冲突 (RAW_RAW)
+  jaffle_shop:
+    +schema: INPUT_DATA # <-- 关键更改在这里！
+
+models:
+  jaffle_shop:
+    # Materialize staging models as views, and marts as tables
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
